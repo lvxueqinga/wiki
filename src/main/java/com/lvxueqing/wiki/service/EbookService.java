@@ -6,6 +6,7 @@ import com.lvxueqing.wiki.domain.EbookExample;
 import com.lvxueqing.wiki.domain.User;
 import com.lvxueqing.wiki.req.EbookReq;
 import com.lvxueqing.wiki.resp.EbookResp;
+import com.lvxueqing.wiki.util.CopyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -28,12 +29,14 @@ public class EbookService {
 
         List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
 
-        List<EbookResp> respList = new ArrayList<>();
-        for (Ebook ebook : ebookList){
-            EbookResp ebookResp = new EbookResp();
-            BeanUtils.copyProperties(ebook,ebookResp);
-            respList.add(ebookResp);
-        }
+//        List<EbookResp> respList = new ArrayList<>();
+//        for (Ebook ebook : ebookList){
+//            EbookResp ebookResp = new EbookResp();
+//            BeanUtils.copyProperties(ebook,ebookResp);
+//            respList.add(ebookResp);
+//        }
+
+        List<EbookResp> respList = CopyUtil.copyList(ebookList,EbookResp.class);
 
         return respList;
     }
