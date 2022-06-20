@@ -1,18 +1,6 @@
 <template>
     <a-layout id="components-layout-demo-top-side-2">
-        <a-layout-header class="header">
-            <div class="logo" />
-            <a-menu
-                    theme="dark"
-                    mode="horizontal"
-                    v-model:selectedKeys="selectedKeys1"
-                    :style="{ lineHeight: '64px' }"
-            >
-                <a-menu-item key="1">nav 1</a-menu-item>
-                <a-menu-item key="2">nav 2</a-menu-item>
-                <a-menu-item key="3">nav 3</a-menu-item>
-            </a-menu>
-        </a-layout-header>
+        <the-header></the-header>
         <router-view/>
 
         <a-layout-footer style="text-align: center">
@@ -21,25 +9,18 @@
     </a-layout>
 </template>
 <script>
-    import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
-    import { defineComponent, ref } from 'vue';
-    export default defineComponent({
-        components: {
-            UserOutlined,
-            LaptopOutlined,
-            NotificationOutlined,
-        },
+    import {defineComponent} from "vue";
 
-        setup() {
-            return {
-                selectedKeys1: ref(['2']),
-                selectedKeys2: ref(['1']),
-                collapsed: ref(false),
-                openKeys: ref(['sub1']),
-            };
+    import TheHeader from '@/components/the-header.vue'
+    export default defineComponent({
+        name: 'app',
+        components: {
+            TheHeader,
+
         },
-    });
+    })
 </script>
+
 <style>
     #components-layout-demo-top-side-2 .logo {
         float: left;
