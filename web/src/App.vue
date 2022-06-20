@@ -2,20 +2,20 @@
     <a-layout id="components-layout-demo-top-side-2">
         <the-header></the-header>
         <router-view/>
+        <the-footer></the-footer>
 
-        <a-layout-footer style="text-align: center">
-            lxq电子书11 ©2022 Created by Ant UED
-        </a-layout-footer>
     </a-layout>
 </template>
 <script>
     import {defineComponent} from "vue";
 
     import TheHeader from '@/components/the-header.vue'
+    import TheFooter from '@/components/the-footer.vue'
     export default defineComponent({
         name: 'app',
         components: {
             TheHeader,
+            TheFooter,
 
         },
     })
