@@ -9,6 +9,7 @@ import com.lvxueqing.wiki.resp.EbookResp;
 import com.lvxueqing.wiki.util.CopyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -25,7 +26,10 @@ public class EbookService {
         //固定写法！
         EbookExample ebookExample = new EbookExample();
         EbookExample.Criteria criteria = ebookExample.createCriteria();
-        criteria.andNameLike("%" + req.getName() + "%");
+        if (!ObjectUtils.isEmpty(req.getName())){
+            criteria.andNameLike("%" + req.getName() + "%");
+        }
+
 
         List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
 

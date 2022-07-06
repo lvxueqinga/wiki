@@ -8,3 +8,6 @@ GET http://localhost:8880/ebook/list1?name=测试
 Accept: application/json
 
 ###
+
+GET http://localhost:8880/ebook/list1
+Accept: application/json
